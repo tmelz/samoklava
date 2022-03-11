@@ -71,7 +71,7 @@ points:
       columns:
         near:
           spread: kx
-          rotate: -15
+          rotate: -16
           origin: [-0.5 kx, -0.5 ky]
           key:
             column_net: P18
