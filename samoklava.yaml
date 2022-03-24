@@ -57,7 +57,7 @@ points:
           key:
             column_net: P15
         inner:
-          stagger: -0 ky
+          stagger: -0.1 ky
           spread: kx
           key:
             column_net: P14
@@ -71,7 +71,7 @@ points:
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-1.2 kx, -1.1 ky]
+        shift: [-1.1 kx, -1.0 ky]
       columns:
         near:
           spread: kx
@@ -105,11 +105,11 @@ outlines:
           - ref: matrix_pinky_bottom
             shift: [-0.7 kx,-0.7 ky]
           - ref: matrix_pinky_top
-            shift: [-0.7 kx,1.75 ky]
+            shift: [-0.7 kx,2.0 ky]
           - ref: matrix_pinky_top
-            shift: [7.2 kx,1.75 ky]
-          - ref: matrix_pinky_bottom
-            shift: [7.2 kx,-2.7 ky]
+            shift: [7.2 kx,2.0 ky]
+          - ref: matrix_pinky_top
+            shift: [7.2 kx,1.0 ky]
           - ref: matrix_pinky_bottom
             shift: [6.2 kx,-2.7 ky]
           - ref: matrix_pinky_bottom
