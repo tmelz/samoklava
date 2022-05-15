@@ -29,8 +29,8 @@ points:
           shift: [0, -5]
   zones:
     matrix:
-      # anchor:
-      #   rotate: 5
+      anchor:
+        rotate: 11
       key.padding: ky
       columns:
         pinky:
@@ -102,18 +102,16 @@ outlines:
     raw:
       - type: polygon
         points:
-          - ref: matrix_pinky_bottom
-            shift: [-0.7 kx,-0.7 ky]
-          - ref: matrix_pinky_top
-            shift: [-0.7 kx,2.0 ky]
-          - ref: matrix_pinky_top
-            shift: [7.2 kx,2.0 ky]
-          - ref: matrix_pinky_top
-            shift: [7.2 kx,1.0 ky]
-          - ref: matrix_pinky_bottom
-            shift: [6.2 kx,-2.7 ky]
-          - ref: matrix_pinky_bottom
-            shift: [-0.7 kx,-0.7 ky]
+          - ref: matrix_middle_bottom
+            shift: [-2.8 kx,-2.8 ky]
+          - ref: matrix_middle_top
+            shift: [-2.8 kx,0.5 ky]
+          - ref: matrix_middle_top
+            shift: [4.35 kx,0.5 ky]
+          - ref: matrix_middle_bottom
+            shift: [4.35 kx,-2.8 ky]
+          - ref: matrix_middle_bottom
+            shift: [-2.8 kx,-2.8 ky]
     thumbfan_glue:
       - type: polygon
         points:
@@ -193,58 +191,58 @@ outlines:
         type: outline
         name: controller_area
         operation: add
-    screw_holes:
-      top_left:
-        type: circle
-        anchor:
-          - ref: matrix_pinky_top
-            shift: [0 kx, 1.2 ky]
-        radius: 1.05
-      bottom_left:
-        type: circle
-        anchor:
-          - ref: matrix_pinky_bottom
-            shift: [1.8 kx, -0.5 ky]
-        radius: 1.05
-      top_right:
-        type: circle
-        anchor:
-          - ref: matrix_inner_top
-            shift: [0.25 kx, 1.5 ky]
-        radius: 1.05
-      palm:
-        type: circle
-        anchor:
-          - ref: matrix_inner_bottom
-            shift: [1 kx, 0 ky]
-        radius: 1.05
-      thumb:
-        type: circle
-        anchor:
-          - ref: thumbfan_far_thumb
-            shift: [0.7 kx, -0.45 ky]
-        radius: 1.05
-    mounting_holes:
-      $extends: outlines.exports.screw_holes
-      top_left:
-        radius: 2.05
-      bottom_left:
-        radius: 2.05
-      top_right:
-        radius: 2.05
-      palm:
-        radius: 2.05
-      thumb:
-        radius: 2.05
+          #screw_holes:
+          #  top_left:
+          #    type: circle
+          #    anchor:
+          #      - ref: matrix_pinky_top
+          #        shift: [0 kx, 1.2 ky]
+          #    radius: 1.05
+          #  bottom_left:
+          #    type: circle
+          #    anchor:
+          #      - ref: matrix_pinky_bottom
+          #        shift: [1.8 kx, -0.5 ky]
+          #    radius: 1.05
+          #  top_right:
+          #    type: circle
+          #    anchor:
+          #      - ref: matrix_inner_top
+          #        shift: [0.25 kx, 1.5 ky]
+          #    radius: 1.05
+          #  palm:
+          #    type: circle
+          #    anchor:
+          #      - ref: matrix_inner_bottom
+          #        shift: [1 kx, 0 ky]
+          #    radius: 1.05
+          #  thumb:
+          #    type: circle
+          #    anchor:
+          #      - ref: thumbfan_far_thumb
+          #        shift: [0.7 kx, -0.45 ky]
+          #    radius: 1.05
+          #mounting_holes:
+          #  $extends: outlines.exports.screw_holes
+          #  top_left:
+          #    radius: 2.05
+          #  bottom_left:
+          #    radius: 2.05
+          #  top_right:
+          #    radius: 2.05
+          #  palm:
+          #    radius: 2.05
+          #  thumb:
+          #    radius: 2.05
     bottom_outline:
       main:
         type: outline
         name: base_outline
-      screw_holes:
-        type: outline
-        # TODO use footprints with pad + via reinforcement as mounting holes
-        name: screw_holes
-        operation: subtract
+          #screw_holes:
+          #  type: outline
+          #  # TODO use footprints with pad + via reinforcement as mounting holes
+          #  name: screw_holes
+          #  operation: subtract
     plate:
       main:
         type: outline
@@ -253,33 +251,35 @@ outlines:
         type: outline
         name: switches
         operation: subtract
-      mounting_holes:
-        type: outline
-        # TODO use footprints with pad + via reinforcement as mounting holes
-        name: screw_holes
-        operation: subtract
+          #mounting_holes:
+          #  type: outline
+          #  # TODO use footprints with pad + via reinforcement as mounting holes
+          #  name: screw_holes
+          #  operation: subtract
     pcb:
       main:
         type: outline
         name: base_outline
-      mounting_holes:
-        type: outline
-        # TODO use plated through hole footprints as mounting holes
-        name: mounting_holes
-        operation: subtract
+          #mounting_holes:
+          #  type: outline
+          #  # TODO use plated through hole footprints as mounting holes
+          #  name: mounting_holes
+          #  operation: subtract
 pcbs:
-  top_plate:
-    # include JLCJLCJLCJLC text somewhere
-    outlines:
-      edge:
-        outline: plate
-        layer: Edge.Cuts
+  #top_plate:
+  #  include_keys: false
+  #  # include JLCJLCJLCJLC text somewhere
+  #  outlines:
+  #    edge:
+  #      outline: plate
+  #      layer: Edge.Cuts
 
-  bottom_plate:
-    outlines:
-      edge:
-        outline: bottom_outline
-        layer: Edge.Cuts
+  #bottom_plate:
+  #  include_keys: false
+  #  outlines:
+  #    edge:
+  #      outline: bottom_outline
+  #      layer: Edge.Cuts
   board:
     outlines:
       edge:
@@ -294,8 +294,8 @@ pcbs:
           batteryPins: true
         anchor:
           ref:
-            - matrix_inner_top
-          shift: [25, 9]
+            - matrix_middle_top
+          shift: [25+40, 9-24]
           rotate: 270
       mcu_r:
         type: promicro
@@ -304,15 +304,15 @@ pcbs:
           batteryPins: true
         anchor:
           ref:
-            - matrix_inner_top
-          shift: [27.5, 12.25]
+            - matrix_middle_top
+          shift: [27.5+40, 12.25-24]
           rotate: 270
       pad_plus:
         type: pad
         anchor:
           ref:
-            - matrix_inner_top
-          shift: [28, 2]
+            - matrix_middle_top
+          shift: [28+40, 2-24]
           rotate: 0
         params:
           front: true
@@ -326,8 +326,8 @@ pcbs:
         type: pad
         anchor:
           ref:
-            - matrix_inner_top
-          shift: [28, 5]
+            - matrix_middle_top
+          shift: [28+40, 5-24]
           rotate: 0
         params:
           front: true
@@ -341,8 +341,8 @@ pcbs:
         type: trrs
         anchor:
           ref:
-            - matrix_inner_bottom
-          shift: [37, 5]
+            - matrix_middle_bottom
+          shift: [37+40-1, 5-24]
           rotate: 270
         params:
           reverse: false
@@ -357,8 +357,8 @@ pcbs:
         type: trrs
         anchor:
           ref:
-            - matrix_inner_bottom
-          shift: [37, 7]
+            - matrix_middle_bottom
+          shift: [37+40-1, 7-24]
           rotate: 270
         params:
           reverse: true
@@ -373,8 +373,8 @@ pcbs:
         type: jumper
         anchor:
           ref:
-            - matrix_inner_bottom
-          shift: [28.5, 20]
+            - matrix_middle_bottom
+          shift: [28.5+40-3, 20-024]
           rotate: 270
         params:
           side: B
@@ -385,8 +385,8 @@ pcbs:
         type: jumper
         anchor:
           ref:
-            - matrix_inner_bottom
-          shift: [28.5, 20]
+            - matrix_middle_bottom
+          shift: [28.5+40-3, 20-24]
           rotate: 270
         params:
           side: F
@@ -397,8 +397,8 @@ pcbs:
         type: slider
         anchor:
           ref:
-            - matrix_inner_bottom
-          shift: [35, 20]
+            - matrix_middle_bottom
+          shift: [35+40-3, 20-24]
           rotate: 270
         params:
           side: F
@@ -409,8 +409,8 @@ pcbs:
         type: slider
         anchor:
           ref:
-            - matrix_inner_bottom
-          shift: [35, 20]
+            - matrix_middle_bottom
+          shift: [35+40-3, 20-24]
           rotate: 270
         params:
           side: B
@@ -421,8 +421,8 @@ pcbs:
         type: button
         anchor:
           ref:
-            - matrix_inner_bottom
-          shift: [22, 20]
+            - matrix_middle_bottom
+          shift: [22+40-3, 20-24]
           rotate: 270
         params:
           variant: 2_pin_th
